@@ -20,7 +20,7 @@ interface AuthSuccessApiResponse {
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly baseapiURL = environment.baseURL;
+  private readonly baseURL = environment.baseURL;
   constructor(private http: HttpClient, private cookieService: CookieService) {}
 
   get isLogged() {
@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   auth({ email, password }: Data): Observable<AuthSuccessApiResponse> {
-    return this.http.post<AuthSuccessApiResponse>(`${this.baseapiURL}/auth`, {
+    return this.http.post<AuthSuccessApiResponse>(`${this.baseURL}/auth`, {
       email,
       password,
     });
