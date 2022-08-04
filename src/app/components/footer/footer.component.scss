@@ -1,0 +1,45 @@
+footer {
+  background-color: var(--gray-800);
+  color: var(--white);
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 100px;
+    padding: 0 1rem;
+  }
+
+  a {
+    color: var(--white);
+  }
+
+  .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      height: 50px;
+      width: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid var(--white);
+      border-radius: 25rem;
+
+      & + a {
+        margin-left: 0.5rem;
+      }
+
+      img {
+        width: 25px;
+        height: 25px;
+        filter: invert(15%) sepia(80%) saturate(4000%);
+      }
+    }
+  }
+}

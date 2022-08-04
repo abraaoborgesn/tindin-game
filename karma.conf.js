@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/challenge-tindin'),
+      dir: require('path').join(__dirname, './coverage/tindin-game'),
       subdir: '.',
       reporters: [
         { type: 'html' },

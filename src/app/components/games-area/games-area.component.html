@@ -1,0 +1,14 @@
+<div class="gamesArea" *ngIf="!searchList || searchList == null">
+  <app-game-list [gamesList]="gamesList"></app-game-list>
+  <button *ngIf="!hasMoreGames" class="viewMore" (click)="handleMoreGames()">
+    View More Games
+  </button>
+</div>
+<div class="gamesArea" *ngIf="searchList">
+  <div class="gameList" *ngIf="searchList.length > 0">
+    <app-game-list [gamesList]="searchList"></app-game-list>
+  </div>
+  <div *ngIf="searchList.length === 0">
+    <p style="color: white">No mathces on this search...</p>
+  </div>
+</div>

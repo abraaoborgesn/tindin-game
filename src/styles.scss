@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --background: #1B1919;
+
+  --red: #fc4444;
+  --white: #FFFFFF;
+  --black: #000000;
+
+  --gray-300: #7F7F7F;
+  --gray-500: #575757;
+  --gray-600: #3F403F;
+  --gray-700: #2C2B2B;
+  --gray-800: #2A2726;
+
+  --swipper-pagination-color: red
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  background: var(--background);
+}
+
+button {
+  cursor: pointer;
+}
+
+[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

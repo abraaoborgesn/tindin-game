@@ -1,0 +1,125 @@
+<div class="container" *ngIf="game">
+  <app-bread-crumb [gameTitle]="game.title"></app-bread-crumb>
+  <div class="gameDetails">
+    <app-img-spotlight [sliderUrls]="sliderUrls"></app-img-spotlight>
+    <div class="infos">
+      <div class="headLine group">
+        <div class="presentation">
+          <div class="ratingAndTitle">
+            <p class="rating">{{ game.rating }}</p>
+            <h1 class="title">{{ game.title }}</h1>
+          </div>
+          <span class="resume"> {{ game.resume }}</span>
+        </div>
+
+        <div *ngIf="isLogged" class="adminActions">
+          <a routerLink="/edit/{{ game._id }}" class="actionBtn">
+            <img
+              src="assets/utils/pencil.svg"
+              alt="update"
+              class="updateIcon"
+              title="Update"
+            />
+          </a>
+          <button class="actionBtn">
+            <img
+              [swal]="{
+                title: 'Confirm Delete?',
+                confirmButtonText: 'Yes',
+                showDenyButton: true,
+                denyButtonText: 'Cancel',
+                background: 'var(--background)',
+                color: 'white',
+                confirmButtonColor: 'green'
+              }"
+              (confirm)="handleDeleteGame(game._id)"
+              src="assets/utils/trash.svg"
+              title="Delete"
+              class="deleteIcon"
+              alt="delete"
+            >
+          </button>
+        </div>
+      </div>
+      <div class="moreDetails group">
+        <div class="category">
+          <p class="type">Genres:</p>
+          <p class="data" *ngFor="let genre of game.genres; index as i">
+            {{ genre }}{{ game.genres![i + 1] ? ", " : "" }}
+          </p>
+          <p *ngIf="!game.genres?.length" class="data">No genres provided</p>
+        </div>
+        <div class="category">
+          <p class="type">Total votes: </p>
+          <p class="data">{{ game.totalVotes }}</p>
+        </div>
+        <div class="category">
+          <p class="type">Platforms:</p>
+          <p class="data" *ngFor="let platform of game.platforms; index as i">
+            {{ platform }}{{ game.platforms![i + 1] ? ", " : "" }}
+          </p>
+          <p class="data" *ngIf="!game.platforms?.length">
+            No platforms provided
+          </p>
+        </div>
+        <div class="category">
+          <p class="type">Tags </p>
+          <p class="data" *ngFor="let tag of game.tags">#{{ tag }}</p>
+          <p class="data" *ngIf="!game.tags?.length">No tags provided</p>
+        </div>
+      </div>
+      <div class="priceArea group">
+        <p class="mediumPrice">Medium Price</p>
+        <p class="mediumValue">{{ game.mediumPrice | currency }}</p>
+        <p
+          class="mediumValue"
+          *ngIf="!game.mediumPrice && game.mediumPrice !== 0"
+        >
+          Not provided
+        </p>
+        <p class="releaseDate">
+          Release year:
+          <time>{{ game.releaseYear }}</time>
+        </p>
+        <div class="votingArea">
+          <button
+            class="voteNow"
+            [swal]="{
+              title: 'Confirm Vote?',
+              confirmButtonText: 'Yes',
+              showDenyButton: true,
+              denyButtonText: 'No',
+              background: 'var(--background)',
+              color: 'white',
+              confirmButtonColor: 'green'
+            }"
+            (confirm)="voteNow()"
+            type=" button"
+          >
+            Vote Now
+          </button>
+          <div class="custom-select">
+            <select #selectVote name="voting" id="voting">
+              <option value="">Vote now</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+            <img class="down" src="assets/utils/down.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2>Description</h2>
+  <div class="description">
+    <p>{{ game.description }}</p>
+  </div>
+</div>

@@ -1,0 +1,336 @@
+.images {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 360px;
+
+  .poster {
+    transition: background ease-out .2s;
+  }
+
+  .poster.spotlightImage {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .8);
+
+    .principalImg {
+      cursor: default;
+      height: 90vh;
+      width: 90vw;
+      object-fit: contain;
+      pointer-events: none;
+    }
+  }
+
+  .hideBtn {
+    display: none;
+  }
+
+  .closeBtn {
+    position: absolute;
+    right: 1%;
+    top: 3%;
+    font-weight: bold;
+    font-size: 2.5rem;
+    border-radius: 2.25rem;
+    cursor: pointer;
+    color: var(--gray-300);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      filter: brightness(.8);
+    }
+  }
+
+  .principalImg,
+  .principalNewGameImg {
+    width: 100%;
+    height: 580px;
+    object-fit: cover;
+    object-position: center;
+    transition: filter ease-out .2s;
+  }
+
+  .principalImg {
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(.7);
+    }
+  }
+
+  .slider {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 220px;
+    width: 380px;
+    overflow-x: hidden;
+    margin: 1rem;
+    position: relative;
+    padding: 0 1.3rem;
+
+    .slide {
+      &+.slide {
+        margin-left: 1rem;
+      }
+    }
+
+    .slideContainer {
+      display: flex;
+      width: 880px;
+      overflow-x: hidden;
+      transition: all ease .2s;
+    }
+
+    .slideImg {
+      cursor: pointer;
+      height: 210px;
+      width: 210px;
+      object-fit: cover;
+      object-position: center;
+      transition: filter ease-out .2s;
+
+      &:hover {
+        filter: brightness(.7);
+      }
+    }
+  }
+
+  .arrows {
+    color: var(--red);
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 99;
+    top: 60px;
+    left: 0;
+    right: 0;
+
+    .leftArrow,
+    .rightArrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--white);
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+
+      img {
+        width: 25px;
+        height: 25px;
+        filter: invert(28%) sepia(72%) saturate(5098%) hue-rotate(350deg) brightness(94%) contrast(101%);
+      }
+    }
+  }
+}
+
+.mediasContainer {
+  width: 100%;
+  overflow: hidden;
+
+  .savedMedias {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin: .5rem 0;
+
+    .media {
+      cursor: pointer;
+      color: var(--white);
+      background: var(--red);
+      padding: 0rem 0.3rem;
+      border-radius: 0.25rem;
+      font-size: .7rem;
+      margin-bottom: .3rem;
+      transition: all ease .1s;
+
+      &:hover {
+        filter: brightness(.7);
+      }
+    }
+  }
+}
+
+.newGameMedia {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: .5rem;
+
+  .instructions {
+    margin: 0.5rem 0;
+    color: white;
+    font-size: 1rem;
+    letter-spacing: .1rem;
+
+    .mediasTitle {
+      font-weight: 700;
+      margin-top: .5rem;
+    }
+
+    p+p {
+      margin-top: .3rem;
+    }
+  }
+
+
+  input {
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: .1rem;
+    width: 100%;
+    padding: .5rem;
+    background: var(--gray-600);
+    border: 3px solid var(--red);
+    color: var(--white);
+    font-weight: 700;
+
+    &::placeholder {
+      color: var(--white);
+    }
+  }
+
+  .addBtn {
+    border: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: .7rem 3rem;
+    margin-top: 1rem;
+    font-weight: 400;
+    color: var(--white);
+    background: var(--red);
+    transition: filter ease .2s;
+
+    &:hover {
+      filter: brightness(.9);
+    }
+  }
+}
+
+//Swiper styles
+
+.swiper {
+  width: 640px;
+  height: 210px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+  width: 160px;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  top: 45%;
+  width: 35px;
+  height: 35px;
+  background: #fff;
+  border-radius: .5rem;
+  color: red;
+  font-weight: 700;
+  outline: 0;
+  transition: background-color .2s ease, color .2s ease;
+
+  &::after {
+    font-size: 12px;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  color: red;
+}
+
+.swiper-slide swiper-slide-dupl {
+  width: unset;
+}
+
+@media screen and (max-width: 980px) {
+  .images {
+    width: 540px;
+
+    .principalImg,
+    .principalNewGameImg {
+      height: 380px;
+    }
+
+    .slider {
+      width: 100%;
+
+      .slideContainer {
+        width: inherit;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .images {
+    width: 420px;
+  }
+
+  .principalImg,
+  .principalNewGameImg {
+    height: 220px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .images {
+    width: 250px;
+  }
+
+  .slideImg {
+    height: 180px;
+    width: 180px;
+  }
+
+  .swiper-button-prev {
+    left: 0;
+  }
+
+  .swiper-button-next {
+    right: 0;
+  }
+}

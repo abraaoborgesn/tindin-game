@@ -1,0 +1,256 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+app-bread-crumb {
+  width: 100%;
+}
+
+.gameDetails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.infos {
+  height: 580px;
+  flex: 1;
+  align-self: flex-start;
+  margin-left: 3.5rem;
+
+  .group {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--white);
+
+    &+.group {
+      margin-top: 1rem;
+    }
+  }
+}
+
+
+
+.actionBtn {
+  border: 0;
+  background: transparent;
+
+  &:hover {
+    filter: brightness(.9);
+  }
+}
+
+.deleteIcon,
+.updateIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 1.5rem;
+  display: block;
+  padding: 0.2rem;
+}
+
+.updateIcon {
+  background: yellow;
+  margin-bottom: 1rem;
+}
+
+.deleteIcon {
+  background: var(--red);
+}
+
+.headLine {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  color: var(--white);
+
+  .presentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+
+  .ratingAndTitle {
+    display: flex;
+
+    .rating {
+      margin: auto;
+      padding: .3rem 1rem;
+      border-radius: .25rem;
+      background: var(--red);
+    }
+
+    .title {
+      font-weight: 400;
+      display: inline-block;
+      margin-left: 0.8rem;
+    }
+  }
+
+  .resume {
+    margin-top: 0.5rem;
+    display: inline-block;
+  }
+}
+
+.moreDetails {
+
+  .category {
+    &+.category {
+      margin-top: 1rem;
+    }
+  }
+
+  .type,
+  .data {
+    display: inline;
+  }
+
+  .type {
+    color: var(--white);
+    font-weight: bold;
+    font-weight: bold;
+  }
+
+  .data {
+    color: var(--gray-300);
+  }
+}
+
+.priceArea {
+
+  .mediumPrice {
+    display: inline;
+  }
+
+  .mediumPrice {
+    color: var(--gray-300);
+    font-size: 1.3rem;
+  }
+
+  .mediumValue {
+    display: inline-block;
+    color: var(--red);
+    font-size: 1.3rem;
+    margin-left: 0.5rem;
+  }
+
+  .releaseDate {
+    margin-top: 1rem;
+    color: var(--gray-300);
+    font-size: .65rem;
+  }
+
+  .voteNow {
+    border: 0;
+    color: var(--white);
+    background: var(--red);
+    text-transform: uppercase;
+    padding: .7rem 2rem;
+    margin-top: 1.5rem;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    transition: filter ease .2s;
+
+    &:hover {
+      filter: brightness(.9);
+    }
+  }
+}
+
+.votingArea {
+  display: flex;
+  align-items: center;
+}
+
+.custom-select {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 1.4rem;
+  margin-left: 1rem;
+
+  select {
+    width: 280px;
+    padding: .5rem;
+    appearance: none;
+    font-weight: 700;
+    background: var(--gray-700);
+    border: 3px solid var(--red);
+    color: var(--white);
+
+    &:focus>option:checked,
+    &:focus>option:hover {
+      background: var(--red);
+    }
+
+    option {
+      font-weight: 700;
+      font-size: 1rem;
+    }
+  }
+
+  .down {
+    margin-left: -45px;
+    filter: invert(28%) sepia(72%) saturate(5098%) hue-rotate(350deg) brightness(94%) contrast(101%);
+  }
+}
+
+
+h2 {
+  color: var(--red);
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.description {
+  width: 100%;
+  padding: 1.5rem 1rem;
+  margin: 1rem 0;
+  line-height: 2rem;
+  color: var(--gray-300);
+  background: var(--gray-700);
+}
+
+@media screen and (max-width: 980px) {
+  .gameDetails {
+    flex-direction: column;
+
+  }
+
+  .headLine {
+    margin-top: 1rem;
+  }
+
+  .infos {
+    align-self: unset;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 2rem;
+  }
+
+  .votingArea {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .container {
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .custom-select {
+    select {
+      width: 250px;
+    }
+  }
+}

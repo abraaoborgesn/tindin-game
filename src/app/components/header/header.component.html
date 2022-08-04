@@ -1,0 +1,20 @@
+<header>
+  <div class="container">
+    <a routerLink="/" class="logo">
+      <img src="../../../assets/logo/logo-tindin.svg" alt="logo" />
+      <img src="../../../assets/logo/name-tindin.svg" alt="name" />
+    </a>
+
+    <div *ngIf="!isLogged" class="searchArea">
+      <input #searchInput type="text" placeholder="Search Game Here" />
+      <button (click)="handleSearch()">Search</button>
+    </div>
+
+    <a *ngIf="!isLogged" routerLink="/login" class="profileBtn">
+      <img src="../../../assets/commons/login.svg" alt="Login Image" />
+    </a>
+    <a *ngIf="isLogged" (click)="logout()" class="profileBtn" >
+      <img src="assets/utils/logout.svg" alt="logout">
+    </a>
+  </div>
+</header>

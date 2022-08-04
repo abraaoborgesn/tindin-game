@@ -1,0 +1,4 @@
+<div class="container" *ngIf="gamesList$ | async as gamesList">
+  <app-game-list *ngIf="gamesList.length > 0" [gamesList]="gamesList"></app-game-list>
+  <p class="notFound" *ngIf="gamesList.length === 0">No games found</p>
+</div>

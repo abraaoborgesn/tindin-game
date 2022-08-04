@@ -1,0 +1,21 @@
+.gamesArea {
+  padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .viewMore {
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    background: var(--red);
+    color: var(--white);
+    text-transform: uppercase;
+    border: 0;
+    transition: filter ease .2s;
+
+    &:hover {
+      filter: brightness(.9);
+    }
+  }
+}
