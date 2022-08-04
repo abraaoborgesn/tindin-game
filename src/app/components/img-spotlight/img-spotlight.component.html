@@ -4,7 +4,7 @@
       #imgSpotlight
       (click)="changeImgOnSpotlight(imgSpotlight.src)"
       class="principalImg"
-      [src]="sliderUrls[0] = '/assets/utils/placeholder-poster.png'"
+      [src]="sliderUrls[0] ?? '/assets/utils/placeholder-poster.png'"
       alt="highlight game"
     />
     <div
